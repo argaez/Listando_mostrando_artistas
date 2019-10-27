@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
 
-    before_action :set_artists, only: %i[show edit update destroy]
+    before_action :set_artist, only: %i[show edit update destroy]
 
     def index
     
@@ -21,9 +21,9 @@ class ArtistsController < ApplicationController
 
     def create
 
-        @artist = Artist.new(product_params)
+        @artist = Artist.new(artist_params)
         if @artist.save
-            redirect_to artists_path
+            redirect_to @artist
         else
             render :new
         end
@@ -46,7 +46,7 @@ class ArtistsController < ApplicationController
     
     def destroy
     
-        if artist.destroy
+        if @artist.destroy
         	flash[:success] = "Artist has been successfully deleted"
 		else
 			flash[:error] = "Artist could not be deleted"
@@ -65,7 +65,7 @@ class ArtistsController < ApplicationController
     
     end
 
-    def set_artists
+    def set_artist
 
         @artist = Artist.find(params[:id])
     
