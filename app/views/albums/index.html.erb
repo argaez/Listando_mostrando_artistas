@@ -1,0 +1,26 @@
+<% @albums.each do |a| %>
+<div class="containter m-5" >
+    <div class="row">
+        <div col-2>
+            <div class="card" style="width: 18rem;">
+            <img src="<%= a.image_url %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= a.name %></h5>
+                    <h5 class="card-title"><%= a.released_at %></h5>
+                    <%= link_to "Ver Más", album, class:"btn btn-primary" %>
+                    <br>
+                    <%= link_to "Editar", edit_album_path(album) %>
+                    <%= link_to "Eliminar", album, method: :delete, data: { confirm: "¿Estás seguro de eliminar este album?" } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>
+
+<div class="container m-5">
+    <div class="row col-md-10"> 
+        <!-- Button trigger modal -->
+        <%= link_to  "Create Album", new_album_path, class:"btn btn-primary" %> 
+    </div>
+</div>

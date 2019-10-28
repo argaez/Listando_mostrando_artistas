@@ -5,7 +5,7 @@ class ArtistsController < ApplicationController
     def index
     
         @artists = Artist.all
-
+       
     end
 
     def show
@@ -16,7 +16,7 @@ class ArtistsController < ApplicationController
     def new
     
         @artist = Artist.new
-
+      
     end
 
     def create
@@ -31,7 +31,8 @@ class ArtistsController < ApplicationController
     end
 
     def edit
-    
+        
+        @albums = Album.all
                 
     end
 
@@ -61,7 +62,7 @@ class ArtistsController < ApplicationController
 
     def artist_params
 
-        params.require(:artist).permit(:name, :image_url)
+        params.require(:artist).permit(:name, :image_url, :album_id)
     
     end
 
