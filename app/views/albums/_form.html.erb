@@ -1,6 +1,6 @@
 <div class="containter m-5" >
     <div class="row">
-        <div col-6>
+        <div class="col-6">
         <%= form_for Album.new do |a| %>
             <div>
                 <%= a.label :name %><br>
@@ -11,16 +11,21 @@
                 <%= a.label :released_at %><br>
                 <%= a.date_field :released_at %>
             </div>
-            <br>
+        </div>
+        <div class="col-6">
             <div>
                 <%= a.label :image_url %><br>
                 <%= a.text_area :image_url %>
             </div>
-            <br>
-            <div>
-                <%= a.submit class:"btn btn-primary" %>
+                <%= a.label :artist_id %>
+            <div class="form-group">
+                <%= a.collection_select(:artist_id, Artist.all, :id, :name, {}, class:"custom-select") %>
             </div>
+        </div>
+
+        <div class="col-6">
+            <%= a.submit class:"btn btn-primary" %>
+        </div>
         <% end %>
     </div>
-</div>
 </div>

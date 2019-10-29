@@ -1,21 +1,20 @@
-<% @artists.each do |artist| %>
+
 <div class="containter m-5" >
     <div class="row">
-        <div col-4>
-            <div class="card" style="width: 18rem;">
-            <img src="<%= artist.image_url %>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><%= artist.name %></h5>
-                    <%= link_to "Ver Más", artist, class:"btn btn-primary" %>
-                    <br>
-                    <%= link_to "Editar", edit_artist_path(artist) %>
-                    <%= link_to "Eliminar", artist, method: :delete, data: { confirm: "¿Estás seguro de eliminar este artista?" } %>
+        <% @artists.each do |artist| %>
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= artist.image_url %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= artist.name %></h5>
+                        <%= link_to "Ver Más", artist, class:"btn btn-primary btn-lg btn-block" %>
+                    </div>
                 </div>
             </div>
-        </div>
+        <% end %>
     </div>
 </div>
-<% end %>
+
 <br>
 <div class="container m-5">
     <div class="row col-md-10"> 
