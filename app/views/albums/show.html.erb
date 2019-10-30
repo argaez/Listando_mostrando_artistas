@@ -2,21 +2,20 @@
     <div class="row">
         <div col-md-4>
             <h1><%= @album.name %></h1>
-            <% @albums.each do |a| %>
             <div class="containter m-5" >
                 <div class="row">
                     <div col-4>
                         <div class="card" style="width: 18rem;">
-                            <img src="<%= a.image_url %>" class="card-img-top" alt="...">
+                            <img src="<%= @album.image_url %>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title"><%= a.name %></h5>
-                                <h5 class="card-title"><%= a.image_url %></h5>
+                                <h5 class="card-title"><%= @album.name %></h5>
+                                <h5 class="card-title"><%= @album.released_at %></h5>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <% end %>
+            
         </div>
     </div>
 </div>

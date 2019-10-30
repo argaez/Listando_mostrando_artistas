@@ -9,7 +9,6 @@ class AlbumsController < ApplicationController
     end
 
     def show
-
             
     end
 

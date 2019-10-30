@@ -1,19 +1,26 @@
-<div class="containter m-5" >
+<div class="containter m-5">
     <div class="row">
-        <h1><%= @artist.name %></h1>
-        <div class="col-md-1">
+        <div class="col-8">
+            <h1><%= @artist.name %></h1>
+            <br>
+            <h5> Albums (<%= @artist.albums.count%>)</h5>
+            <br>
             <% @artist.albums.each do |album| %>
-            <div class="card">
-                <img src="<%= album.image_url %>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><%= album.name %></h5>
-                    <h5 class="card-title"><%= album.image_url %></h5>
-                </div>
-            </div>
+                <div class="col-2">
+                    <div class="card" style="width: 9rem;">
+                        <img src="<%= album.image_url %>" class="card-img-top" alt="...">
+                        <div class="card-body" style="text-align: left;">
+                            <h5 class="card-title"><%= album.name %></h5>
+                            <h5 class="card-title"><%= album.released_at %></h5>
+                        </div>
+                    </div>
+                </div>    
             <% end %>
         </div>
-        <div class="col-md-4 offset-8">
+        <div class="col-md-4">
             <img src="<%= @artist.image_url %>" class="card-img-top" style="width: 100%" alt="...">
         </div>
     </div>
 </div>
+
+
