@@ -5,22 +5,23 @@
             <br>
             <h5> Albums (<%= @artist.albums.count%>)</h5>
             <br>
-            <% @artist.albums.each do |album| %>
-                <div class="col-2">
-                    <div class="card" style="width: 9rem;">
-                        <img src="<%= album.image_url %>" class="card-img-top" alt="...">
-                        <div class="card-body" style="text-align: left;">
-                            <h5 class="card-title"><%= album.name %></h5>
-                            <h5 class="card-title"><%= album.released_at %></h5>
-                        </div>
+            <div class="d-flex flex-wrap">
+                <% @artist.albums.each do |album| %>     
+                    <div class="bd-highlight" >            
+                        <div class="card m-3" style="width:  9rem;">
+                            <img src="<%= album.image_url %>" class="card-img-top" alt="foo_fighters">
+                            <div class="card-body">
+                                <p class="text-left"><%= album.name %></p>
+                                <p class="card-text"><%= album.released_at %></p>                            
+                            </div>
+                        </div>              
                     </div>
-                </div>    
-            <% end %>
-        </div>
+                 <% end %>
+            </div>  
+        </div>       
         <div class="col-md-4">
             <img src="<%= @artist.image_url %>" class="card-img-top" style="width: 100%" alt="...">
         </div>
     </div>
 </div>
-
 
